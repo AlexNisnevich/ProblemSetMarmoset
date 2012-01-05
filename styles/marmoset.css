@@ -56,6 +56,10 @@ body {
 #latexColumn #previewArea #preview img {
   padding: 0 2px;
 }
+#latexColumn #previewArea #preview img.display {
+  display: block;
+  margin: 0.5em auto;
+}
 #latexColumn #previewArea #previewMessage {
   position: absolute;
   top: 51px;
@@ -65,6 +69,29 @@ body {
   font-size: 200%;
   font-weight: bold;
   color: #ccc;
+}
+#latexColumn #previewArea #renderButtonContainer {
+  position: absolute;
+  top: 123px;
+  right: 0;
+  padding: 0 4px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  background: #f8f8f8;
+}
+#latexColumn #previewArea #renderButtonContainer.horizontalScrollbar {
+  top: 107px;
+}
+#latexColumn #previewArea #renderButtonContainer.verticalScrollbar {
+  right: 15px;
+}
+#latexColumn #previewArea #renderButtonContainer a#renderButton {
+  color: #666;
+  cursor: pointer;
+  text-decoration: none;
+}
+#latexColumn #previewArea #renderButtonContainer a#renderButton:hover {
+  text-decoration: underline;
 }
 #latexColumn #previewArea .arrows a {
   position: absolute;
