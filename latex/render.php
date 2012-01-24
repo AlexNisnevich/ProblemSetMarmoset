@@ -27,11 +27,9 @@ function render_quicklatex($formula) {
 		'mode' => 0,
 		'out' => 1,
 		'remhost' => 'quicklatex.com',
-		'preamble' => '\usepackage{amsmath}
-			\usepackage{amsfonts}
-			\usepackage{amssymb}
+		'preamble' => '\usepackage{amsmath, amsfonts, amssymb}
 			\usepackage{tikz}
-			\usepackage{mhchem}',
+			\usepackage[version=3]{mhchem}',
 		'rnd' => rand()
 	);
 	

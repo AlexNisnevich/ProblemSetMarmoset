@@ -2,6 +2,7 @@ body {
   font-family: Antic, tahoma, verdana, sans-serif;
   font-size: 0.9em;
 }
+
 #container {
   width: 924px;
   height: 510px;
@@ -10,10 +11,12 @@ body {
   margin: 50px auto 5px;
   border-bottom: 5px solid #448844;
 }
+
 #logo {
   font-size: 200%;
   margin-bottom: 10px;
 }
+
 #latexColumn {
   float: left;
   position: relative;
@@ -23,6 +26,7 @@ body {
   padding-right: 20px;
   border-right: 5px solid #448844;
 }
+
 #latexColumn #previewArea {
   position: relative;
   height: 152px;
@@ -85,6 +89,9 @@ body {
 #latexColumn #previewArea #renderButtonContainer.verticalScrollbar {
   right: 15px;
 }
+#latexColumn #previewArea.open #renderButtonContainer {
+  margin-top: 265px;
+}
 #latexColumn #previewArea #renderButtonContainer a#renderButton {
   color: #666;
   cursor: pointer;
@@ -107,6 +114,7 @@ body {
 #latexColumn #previewArea .arrows a#editorArrow {
   bottom: -8px;
 }
+
 #latexColumn #editor {
   height: 265px;
   width: 100%;
@@ -146,6 +154,7 @@ body {
 #latexColumn .CodeMirror .activeline {
   background: #e6faff !important;
 }
+
 #latexColumn #counterRow div {
   float: left;
   position: relative;
@@ -160,6 +169,7 @@ body {
   text-align: right;
   top: 3px;
 }
+
 #marmosetColumn {
   float: left;
   width: 354px;
@@ -200,6 +210,7 @@ body {
   top: 5px;
   display: none;
 }
+
 #footer {
   width: 924px;
   text-align: right;
@@ -212,6 +223,7 @@ body {
 #footer a:hover {
   text-decoration: underline;
 }
+
 #pages {
   width: 924px;
   margin: 0 auto 50px;
