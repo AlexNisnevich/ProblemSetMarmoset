@@ -1,0 +1,251 @@
+body {
+  font-family: Antic, tahoma, verdana, sans-serif;
+  font-size: 0.9em;
+}
+
+#container {
+  width: 924px;
+  height: 510px;
+  background-color: #ffffff;
+  padding-top: 15px;
+  margin: 50px auto 5px;
+  border-bottom: 5px solid #448844;
+}
+
+#logo {
+  font-size: 200%;
+  margin-bottom: 10px;
+}
+
+#latexColumn {
+  float: left;
+  position: relative;
+  /* top: -20px;
+  padding-top: 20px; */
+  width: 525px;
+  padding-right: 20px;
+  border-right: 5px solid #448844;
+}
+
+#latexColumn #previewArea {
+  position: relative;
+  height: 152px;
+}
+#latexColumn #previewArea.open {
+  height: 418px;
+}
+#latexColumn #previewArea.open #preview {
+  height: 405px;
+}
+#latexColumn #previewArea.closed {
+  height: 12px;
+}
+#latexColumn #previewArea.closed #preview {
+  height: 0;
+  border: 0px;
+}
+#latexColumn #previewArea #preview {
+  border: 1px solid #ddd;
+  height: 140px;
+  width: 520px;
+  padding-left: 5px;
+  overflow: auto;
+  font-family: "EB Garamond", serif;
+  font-size: 1.2em;
+}
+#latexColumn #previewArea #preview p {
+  margin-top: 3px;
+  margin-bottom: 0.75em;
+}
+#latexColumn #previewArea #preview img {
+  padding: 0 2px;
+}
+#latexColumn #previewArea #preview img.display {
+  display: block;
+  margin: 0.5em auto;
+}
+#latexColumn #previewArea #previewMessage {
+  position: absolute;
+  top: 51px;
+  width: 505px;
+  text-align: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 200%;
+  font-weight: bold;
+  color: #ccc;
+}
+#latexColumn #previewArea #renderButtonContainer {
+  position: absolute;
+  top: 123px;
+  right: 0;
+  padding: 0 4px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  background: #f8f8f8;
+}
+#latexColumn #previewArea #renderButtonContainer.horizontalScrollbar {
+  top: 107px;
+}
+#latexColumn #previewArea #renderButtonContainer.verticalScrollbar {
+  right: 15px;
+}
+#latexColumn #previewArea.open #renderButtonContainer {
+  margin-top: 265px;
+}
+#latexColumn #previewArea #renderButtonContainer a#renderButton {
+  color: #666;
+  cursor: pointer;
+  text-decoration: none;
+}
+#latexColumn #previewArea #renderButtonContainer a#renderButton:hover {
+  text-decoration: underline;
+}
+#latexColumn #previewArea .arrows a {
+  position: absolute;
+  left: -18px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-family: sans-serif;
+  color: #448844;
+}
+#latexColumn #previewArea .arrows a#previewArrow {
+  bottom: 8px;
+}
+#latexColumn #previewArea .arrows a#editorArrow {
+  bottom: -8px;
+}
+
+#latexColumn #editor {
+  height: 265px;
+  width: 100%;
+}
+#latexColumn .CodeMirror {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  line-height: 1.2em;
+  font-size: 12px;
+}
+#latexColumn .CodeMirror.open .CodeMirror-scroll {
+  height: 405px;
+}
+#latexColumn .CodeMirror.closed {
+  border-top: 0;
+}
+#latexColumn .CodeMirror.closed .CodeMirror-scroll {
+  height: 0;
+}
+#latexColumn .CodeMirror .CodeMirror-scroll {
+  height: 265px;
+  background: #ffffff;
+}
+#latexColumn .CodeMirror .CodeMirror-scroll.fullscreen {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  border: 0px solid #BBBBBB;
+  opacity: 1;
+}
+#latexColumn .CodeMirror .activeline {
+  background: #e6faff !important;
+}
+
+#latexColumn #counterRow div {
+  float: left;
+  position: relative;
+}
+#latexColumn #counterRow div#settingsArea {
+  float: left;
+  width: 60%;
+}
+#latexColumn #counterRow div#counterArea {
+  float: left;
+  width: 40%;
+  text-align: right;
+  top: 3px;
+}
+
+#marmosetColumn {
+  float: left;
+  width: 354px;
+  padding-left: 20px;
+}
+#marmosetColumn #localStorageWarning {
+  font-size: 1.2em;
+  float: left;
+	background: #eee;
+  border: 1px solid #ccc;
+	padding: 1em;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 10px 10px 5px #888;
+	-mox-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+}
+#marmosetColumn #marmoset {
+  height: 415px;
+  width: 100%;
+}
+#marmosetColumn #marmosetCredit {
+  position: relative;
+  top: 4px;
+  font-size: 0.75em;
+  text-align: right;
+}
+#marmosetColumn #marmosetCredit a {
+  text-decoration: none;
+}
+#marmosetColumn #nextMarmoset {
+  display: none;
+}
+#marmosetColumn #notAMarmoset {
+  float: right;
+  position: relative;
+  top: 5px;
+  display: none;
+}
+
+#footer {
+  width: 924px;
+  text-align: right;
+  margin: 0 auto;
+}
+#footer a {
+  color: #000000;
+  text-decoration: none;
+}
+#footer a:hover {
+  text-decoration: underline;
+}
+
+#pages {
+  width: 924px;
+  margin: 0 auto 50px;
+}
+#pages .page {
+  display: none;
+}
+#pages .page.shown {
+  display: block;
+}
+#pages .title {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+#pages #featuresPage li {
+  margin-bottom: 0.8em;
+}
+#pages #featuresPage li ul {
+  margin: 0.5em 0;
+}
+#pages #featuresPage li ul li {
+  margin-bottom: 0;
+}
+
+
