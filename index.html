@@ -82,7 +82,7 @@
   <div id="pages">
     <div id="aboutPage" class="page">
       <p class="title">About</p>
-      <p>Problem Set Marmoset (PSM) was created by professional procrastinators Alex Nisnevich and Demie Cheng as an alternative to <a href="http://www.writtenkitten.net" target="_blank">Written Kitten</a> for people who need to write their papers in LaTeX. If you have less than six hours left before you need to turn in algebra homework (and still can't manage to give a damn), you've come to the right place! Problem Set Marmoset will reward you with an exciting new image of a marmoset every time you type a certain number of characters. Our intent is to lend some positive reinforcement to the scientific sphere of academia.</p>
+      <p>Problem Set Marmoset (PSM) was created by professional procrastinators <a href="http://alex.nisnevich.com">Alex Nisnevich</a> and Demie Cheng as an alternative to <a href="http://www.writtenkitten.net" target="_blank">Written Kitten</a> for people who need to write their papers in LaTeX. If you have less than six hours left before you need to turn in algebra homework (and still can't manage to give a damn), you've come to the right place! Problem Set Marmoset will reward you with an exciting new image of a marmoset every time you type a certain number of characters. Our intent is to lend some positive reinforcement to the scientific sphere of academia.</p>
       <p>If you are skeptical about the effectiveness of cute animals on deadlines, let it be known that I am forcing myself to type these very words only with the help of Written Kitten. Desperation knows no bounds. First time here? Make sure to check out the features section to know how you can fiddle with Problem Set Marmoset.</p>
       <p><i>Alex is currently a junior at UC Berkeley, majoring in computer science and mathematics. Demie is a recent Berkeley graduate in linguistics and mathematics. Both enjoy gelato, short stories by Chekhov, and marmosets commending their incremental progress.</i></p>
       <p>Special thanks to:</p>
@@ -101,9 +101,9 @@
       <ul>
     	<li><b>Syntax:</b> Problem Set Marmoset uses the <a href="http://www.holoborodko.com/pavel/quicklatex/" target="_blank">QuickLaTeX</a> renderer by separately rendering every mathmode chunk. Typing in PSM follows basic LaTeX syntax except for some major restrictions:<br><br>
 
-			All math formatting must be done within mathmode delimiters <B>$</B> . . . <B>$</B> (even commands that are usually exempt, like <B>\begin{equation*}</B> or <B>\begin{tabular}</B>). For display math, the <B>$$</B> . . . <B>$$</B> delimiters are supported, but <B>\[</B> . . . <B>\]</B> are not.<br><br>
+			The renderer is invoked for text that is within mathmode delimiters <B>$</B> ... <B>$</B>, display math delimiters <B>$$</B> ... <B>$$</B>, or environment delimiters <B>\begin{</B><I>some-environment</I><B>}</B> ... <B>\end{</B><I>some-environment</I><B>}</B>. The alternate display math delimiters <B>\[</B> . . . <B>\]</B> are not currently supported.<br><br>
 
-			There is no manual preamble support, which means that you do not have to specify the <B>\documentclass{}</B> and you aren't able to import packages. Contact us if you would like to request a specific package to be included. Here are the packages currently supported (warning: large pdf manuals):
+			There is no manual preamble support, which means that you do not have to specify the <B>\documentclass{}</B> and you aren't able to import packages. Contact us if you would like to request a specific package to be included. Here are the packages currently supported (warning: links are to large PDF manuals):
 			<ul>
 				<li><a href="ftp://ftp.ams.org/ams/doc/amsmath/amsldoc.pdf" target="_blank">amsmath</a></li>
 				<li>amsfonts</li>
@@ -112,7 +112,7 @@
 				<li><a href="http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/contrib/mhchem/mhchem.pdf" target="_blank">mhchem</a></li>
 			</ul>
 
-			Also, new lines are simply begun by hitting the return carriage twice. Do not attempt to start a new line with <B>\newline</B> or <B>\\</B> (although <B>\\</B> does work within mathmode). Remember to reinsert the appropriate <B>\newline</B> or <B>\\</B> commands in your actual editor!<br><br>
+			Paragraphs are separated by a blank line between them. Do not attempt to start a new line with <B>\newline</B> or <B>\\</B> (although <B>\\</B> does work within mathmode). Remember to reinsert the appropriate <B>\newline</B> or <B>\\</B> commands in your actual editor!<br><br>
 
 			Otherwise, you can type as you normally would into PSM. In particular, all horizontal and vertical spacing controls are respected (e.g. <B>\;</B> <B>\!</B> <B>\vphantom{}</B>, etc.) with the exception of <B>\(no)indent</B>.<br><br>
 
@@ -132,7 +132,7 @@
 		  </ul>
 		</li>
 
-		<li><b>Rendition:</b> The LaTeX renderer automatically refreshes every 10 seconds to reflect the current input. However, if you wish to see the results immediately because you're making some minor changes (or trying to fix syntax), you can click 'render' on the bottom-right corner of the output window. </li>
+		<li><b>Rendering:</b> The LaTeX renderer automatically refreshes every 10 seconds to reflect the current input. However, if you wish to see the results immediately because you're making some minor changes (or trying to fix syntax), you can click 'render' on the bottom-right corner of the output window. </li>
 
 		<li><b>Adjustable interface:</b> There are two arrows on the left hand side of the text fields. You can maximize the output window by clicking on the down arrow and maximize the input window by clicking on the up arrow. As you type more and more into PSM, it will probably become necessary at some points to glance at the output as a whole, which is why these arrows have been implemented. However, we still remind you to clear the text fields regularly to speed up rendition time and to ensure that your work is properly saved.</li>
 

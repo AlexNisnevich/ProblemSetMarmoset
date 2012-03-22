@@ -179,12 +179,12 @@ function refreshPreview() {
 }
 
 function afterRefresh() {
-	// refresh scroll position after a second (to give image time to load)
+	// refresh scroll position and render button after a second (to give image time to load)
+	$('#preview').scrollTop(currentScroll);
 	setTimeout(function () {
-		$('#preview').scrollTop(currentScroll)
+		$('#preview').scrollTop(currentScroll);
+		positionRenderButton();
 	}, 1000);
-	
-	positionRenderButton();
 }
 
 function positionRenderButton() {
@@ -223,13 +223,24 @@ function renderPreview(src, targetElt) {
 				for(var k=0; k < array2.length; k++) {
 					var small_frag = array2[k];
 					var node;
-					if(small_frag[0]==0){
-						node = document.createTextNode(small_frag[1]);
+					if(small_frag[0] == 0){
+						// For environment_frag in par.
+						var array3 = mathtranUtil._re_split(small_frag[1], mathtranUtil.regex.environment, 0, 1)
+						for(var m=0; m < array3.length; m++) {
+							var env_frag = array3[m];
+							if (env_frag[0] == 0) {
+								node = document.createTextNode(env_frag[1]);
+							} else {
+								node = renderFormula(env_frag[1], false);
+								node.tex = env_frag[1];
+							}
+							p_elt.appendChild(node)
+						}
 					} else {
 						node = renderFormula(small_frag[1], false);
 						node.tex = small_frag[1];
+						p_elt.appendChild(node);
 					}
-					p_elt.appendChild(node)
 			   }
 			} else {
 				img_elt = renderFormula('\\displaystyle ' + big_frag[1], true); // See Heilmann's "JavaScript with DOM .. " page 127.
@@ -291,8 +302,9 @@ mathtranUtil.regex = {
 	// Regexps for extracting a math expression from a paragraph.
 	// Minimal, delimiter, minimal, delimiter, remainder
 	
-	inline: /((?:.|\n)*?)\$((?:.|\n)*?)\$((?:.|\n)*)/m,
-	display: /((?:.|\n)*?)\$\$((?:.|\n)*?)\$\$((?:.|\n)*)/m
+	inline: /((?:.|\n)*?)\$((?:.|\n)*?)()\$((?:.|\n)*)/m,
+	display: /((?:.|\n)*?)\$\$((?:.|\n)*?)()\$\$((?:.|\n)*)/m,
+	environment: /((?:.|\n)*?)(\\begin{((?:.|\n)*)}(?:(?:.|\n)*)\\end{\3})((?:.|\n)*)/m
 };
 
 mathtranUtil._split_into_pars = function(s){ // break text into paragraphs
@@ -309,7 +321,7 @@ mathtranUtil._re_split = function(s, re, a, b) { // break a paragraph into piece
      if(m){
        result.push([a, m[1]])
        result.push([b, m[2]])
-       pending = m[3]
+       pending = m[4]
      } else {
        result.push([a, pending])
        break
