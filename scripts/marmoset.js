@@ -41,12 +41,12 @@ $(function() {
 	$("#renderButton").click(refreshPreview).hide();
 	$("#previewArrow").click(previewArrowClick);
 	$("#editorArrow").click(editorArrowClick);
-	
+
 	setTimeout(function () {
 		positionRenderButton();
 		$("#renderButton").fadeIn();
 	}, 2000);
-	
+
 
 	$("#footer a").click(function (e) {
 		e.preventDefault();
@@ -62,9 +62,9 @@ $(function() {
   // Retrieve first marmoset
 
   getMarmoset();
-  
+
   // Start the refresh timer
-  
+
   var refreshSec = 10;
   setInterval(refreshPreview, refreshSec * 1000);
 	refreshPreview();
@@ -96,7 +96,7 @@ function onEdit() {
 		$("#localStorageWarning").fadeOut("slow");
 		warningShown = true;
 	} else if (charCount >= 25 && !warningShown) {
-		$("#localStorageWarning").fadeIn("slow"); 
+		$("#localStorageWarning").fadeIn("slow");
 	}
 }
 
@@ -108,11 +108,17 @@ function toggleFullscreenEditing()
 		editorDiv.addClass('fullscreen');
 		editorDiv.height('100%');
 		editorDiv.width('100%');
+		$('#latexColumn').addClass('fullscreen');
+		$('#marmosetColumn').hide();
+		$('body').addClass('noscroll');
 		editor.refresh();
   } else {
 		editorDiv.removeClass('fullscreen');
 		editorDiv.height(toggleFullscreenEditing.beforeFullscreen.height);
 		editorDiv.width(toggleFullscreenEditing.beforeFullscreen.width);
+		$('#latexColumn').removeClass('fullscreen');
+		$('#marmosetColumn').show();
+		$('body').removeClass('noscroll');
 		editor.refresh();
   }
 }
@@ -164,7 +170,7 @@ function refreshPreview() {
 		var previewPane = document.getElementById('preview');
 		currentScroll = previewPane.scrollTop;
 		previewPane.innerHTML = '';
-		
+
 		if (contents.length == 0) {
 			$('#previewMessage').show();
 			resetCount(); // e.g. new document
@@ -172,7 +178,7 @@ function refreshPreview() {
 			$('#previewMessage').hide();
 			renderPreview(contents, previewPane);
 		}
-		
+
 		afterRefresh();
 	}
   lastRenderContents = contents;
@@ -189,13 +195,13 @@ function afterRefresh() {
 
 function positionRenderButton() {
 	var preview = document.getElementById('preview'); // need real DOM Node, not jQuery wrapper
-	
+
 	if (preview.scrollHeight > preview.clientHeight) {
 		$('#renderButtonContainer').addClass('verticalScrollbar');
 	} else {
 		$('#renderButtonContainer').removeClass('verticalScrollbar');
 	}
-	
+
 	if (preview.scrollWidth > preview.clientWidth) {
 		$('#renderButtonContainer').addClass('horizontalScrollbar');
 	} else {
@@ -254,16 +260,16 @@ function renderPreview(src, targetElt) {
 
 function renderFormula(src, isDisplayMode) {
 	var formula = escape(src.replace(/%/g,"[comment]").replace(/\+/g,"%2B"));
-	
+
 	var img_elt = document.createElement('img');
-	if (isDisplayMode || 
+	if (isDisplayMode ||
 			src.indexOf('\\begin{') == 0) { // if we're beginning an environment, we probably want to use display mode
 		img_elt.className = 'display'; // For IE6, setAttribute does not work here
 		img_elt.src = 'images/loader_big.gif';
 	} else {
 		img_elt.src = 'images/loader.gif';
 	}
-	
+
 	if (typeof renderedFormulas[src] != "undefined") {
 		img_elt.src = renderedFormulas[src]; // return previously rendered image
 	} else {
@@ -288,20 +294,20 @@ function renderFormula(src, isDisplayMode) {
 					}
 					img_elt.src = url;
 					renderedFormulas[src] = url;
-					
+
 					afterRefresh();
 				}
 			}
 		});
 	}
-	
+
 	return img_elt;
 }
 
 mathtranUtil.regex = {
 	// Regexps for extracting a math expression from a paragraph.
 	// Minimal, delimiter, minimal, delimiter, remainder
-	
+
 	inline: /((?:.|\n)*?)\$((?:.|\n)*?)()\$((?:.|\n)*)/m,
 	display: /((?:.|\n)*?)\$\$((?:.|\n)*?)()\$\$((?:.|\n)*)/m,
 	environment: /((?:.|\n)*?)(\\begin{((?:.|\n)*)}(?:(?:.|\n)*)\\end{\3})((?:.|\n)*)/m
@@ -359,7 +365,7 @@ function localStorageWarning() {
 function getMarmoset() {
   var pageNum = Math.ceil(Math.random()*423/100);
   var flickrUrl = "http://api.flickr.com/services/rest/?format=json&sort=interestingness-desc&method=flickr.photos.search&license=1,2,4,6&extras=owner_name,license&tags=marmoset&tag_mode=all&api_key=" + flickrApiKey + "&page=" + pageNum + "&jsoncallback=?";
-    
+
   $.getJSON(flickrUrl, function(data) {
 	if (data.stat == "ok") {
 	  var i;
@@ -368,13 +374,13 @@ function getMarmoset() {
 			i = Math.ceil(Math.random() * 100);
 				photo = data.photos.photo[i];
 			}
-			
+
 			license = ["All rights reserved","CC BY-NC-SA","CC BY-NC", "CC BY-NC-ND", "CC BY", "CC BY-SA", "CC BY-ND"][photo.license]
 			nextMarmoset.imgUrl = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_z.jpg";
 			nextMarmoset.pageUrl = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 			nextMarmoset.alt = photo.title + " by " + photo.ownername + " (under " + license + ")";
 			$("#nextMarmoset").attr("src", nextMarmoset.imgUrl);
-	
+
 			// has this marmoset already been shown?
 			if (marmosetList.length > 100) {marmosetList.shift(); } // only keep last 100 marmosets shown
 			if ($.inArray(marmosetList, nextMarmoset.imgUrl) > -1) {
@@ -382,7 +388,7 @@ function getMarmoset() {
 			} else {
 				marmosetList.push(nextMarmoset.imgUrl);
 			}
-	
+
 			// should a marmoset be shown now?
 			if ($("#marmoset").css("background-image") == "none" && marmosetsEarned > marmosetsShown) {
 				showMarmoset();
