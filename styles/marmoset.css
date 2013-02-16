@@ -138,13 +138,13 @@ body.noscroll {
   font-size: 12px;
 }
 #latexColumn .CodeMirror.open .CodeMirror-scroll {
-  height: 405px;
+  height: 405px !important;
 }
 #latexColumn .CodeMirror.closed {
   border-top: 0;
 }
 #latexColumn .CodeMirror.closed .CodeMirror-scroll {
-  height: 0;
+  height: 0 !important;
 }
 #latexColumn .CodeMirror .CodeMirror-scroll {
   height: 265px;
