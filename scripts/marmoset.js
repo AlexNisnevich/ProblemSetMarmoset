@@ -14,11 +14,13 @@ var nextMarmoset = {};
 var marmosetList = [];
 
 // Globals: renderer
+var refreshSec = 10;
 var renderUrl = "http://www.problemsetmarmoset.com/latex/render.php";
 var renderedFormulas = {};
 var mathtranUtil = {};
 var lastRenderContents = "";
 var currentScroll = 0;
+var lastEdit = Date.now();
 
 $(function() {
   // Initialize CodeMirror editor
@@ -65,14 +67,14 @@ $(function() {
 
   // Start the refresh timer
 
-  var refreshSec = 10;
-  setInterval(refreshPreview, refreshSec * 1000);
 	refreshPreview();
 });
 
 // CodeMirror editor
 
 function onEdit() {
+	lastEdit = Date.now();
+
   // save to local storage
   saveToStorage();
 
@@ -166,6 +168,12 @@ function editorArrowClick() {
 // Preview
 
 function refreshPreview() {
+	if (Date.now() - lastEdit < 1000) {
+		// wait one second after last edit
+		setTimeout(refreshPreview, 1000);
+		return;
+	}
+
 	if (contents != lastRenderContents) {
 		var previewPane = document.getElementById('preview');
 		currentScroll = previewPane.scrollTop;
@@ -182,6 +190,8 @@ function refreshPreview() {
 		afterRefresh();
 	}
   lastRenderContents = contents;
+
+  setTimeout(refreshPreview, refreshSec * 1000); // reset refresh timer
 }
 
 function afterRefresh() {
