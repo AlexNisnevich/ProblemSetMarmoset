@@ -1,41 +1,42 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Problem Set? Marmoset!</title>
-  <link rel="shortcut icon" href="favicon.ico">
+	<title>Problem Set? Marmoset!</title>
+	<link rel="shortcut icon" href="favicon.ico">
 
-  <link href="http://fonts.googleapis.com/css?family=Antic|EB+Garamond" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="styles/marmoset.css">
+	<link href="http://fonts.googleapis.com/css?family=Antic|EB+Garamond" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="styles/marmoset.css">
 
-  <!--<link rel="stylesheet" type="text/css" href="http://webputty.commondatastorage.googleapis.com/agtzfmNzc2ZpZGRsZXIMCxIEUGFnZRi0hjAM.css">
+	<!--<link rel="stylesheet" type="text/css" href="http://webputty.commondatastorage.googleapis.com/agtzfmNzc2ZpZGRsZXIMCxIEUGFnZRi0hjAM.css">
 <script type="text/javascript">(function(w,d){if(w.location!=w.parent.location||w.location.search.indexOf('__preview_css__')>-1){var t=d.createElement('script');t.type='text/javascript';t.async=true;t.src='http://www.webputty.net/js/agtzfmNzc2ZpZGRsZXIMCxIEUGFnZRi0hjAM';(d.body||d.documentElement).appendChild(t);}})(window,document);</script>-->
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="lib/CodeMirror-2.2/lib/codemirror-mine.css">
-  <script type="text/javascript" src="lib/CodeMirror-2.2/lib/codemirror.js"></script>
-  <script type="text/javascript" src="lib/CodeMirror-2.2/mode/stex/stex.js"></script>
-  <!--<link rel="stylesheet" href="lib/CodeMirror-2.2/theme/neat.css">-->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="lib/CodeMirror-2.2/lib/codemirror-mine.css">
+	<script type="text/javascript" src="lib/CodeMirror-2.2/lib/codemirror.js"></script>
+	<script type="text/javascript" src="lib/CodeMirror-2.2/mode/stex/stex.js"></script>
+	<!--<link rel="stylesheet" href="lib/CodeMirror-2.2/theme/neat.css">-->
 
-  <script type="text/javascript" src="scripts/marmoset.js"></script>
+	<script type="text/javascript" src="scripts/marmoset.js"></script>
 
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-345959-8']);
-  _gaq.push(['_trackPageview']);
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-345959-8']);
+	_gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  </script>
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
 </head>
 <body>
-  <div id="container">
-    <div id="logo">
-      <img src="images/logo_beta.png" alt="Problem Set? Marmoset!">
-    </div>
-    <div id="latexColumn">
+	<a href="https://github.com/AlexNisnevich/ProblemSetMarmoset"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+	<div id="container">
+		<div id="logo">
+			<img src="images/logo_beta.png" alt="Problem Set? Marmoset!">
+		</div>
+		<div id="latexColumn">
 		<div id="previewArea">
 			<div id="preview"></div>
 			<div id="previewMessage">LaTeX output will go here</div>
@@ -43,63 +44,63 @@
 				<a id="renderButton">render</a>
 			</div>
 			<div class="arrows">
-			  <a id="previewArrow">&#x25BC;</a>
-			  <a id="editorArrow">&#x25B2;</a>
+				<a id="previewArrow">&#x25BC;</a>
+				<a id="editorArrow">&#x25B2;</a>
 			</div>
 		</div>
 		<textarea id="editor"></textarea>
 		<div id="counterRow">
 			<div id="settingsArea">
-			  fresh marmoset every
-			  <select id="marmosetEvery">
+				fresh marmoset every
+				<select id="marmosetEvery">
 				<option value="175">175</option>
 				<option value="350">350</option>
 				<option value="500">500</option>
 				<option value="750">750</option>
 				<option value="1000">1000</option>
-			  </select>
-			  characters
+				</select>
+				characters
 			</div>
 			<div id="counterArea">
-			  currently: <span id="count">0</span> char
+				currently: <span id="count">0</span> char
 			</div>
 		</div>
-    </div>
-    <div id="marmosetColumn">
-      <div id="localStorageWarning"></div>
-      <div id="marmoset">
+		</div>
+		<div id="marmosetColumn">
+			<div id="localStorageWarning"></div>
+			<div id="marmoset">
 	<img id="nextMarmoset" src="" alt="">
-      </div>
-      <div id="marmosetCredit"></div>
-      <button id="notAMarmoset">not a marmoset D:</button>
-    </div>
-  </div>
-  <div id="footer">
-    <a href="#about">about</a> |
-    <a href="#features">features</a> |
-    <a href="#contact">contact</a>
-  </div>
-  <div id="pages">
-    <div id="aboutPage" class="page">
-      <p class="title">About</p>
-      <p>Problem Set Marmoset (PSM) was created by professional procrastinators <a href="http://alex.nisnevich.com">Alex Nisnevich</a> and Demie Cheng as an alternative to <a href="http://www.writtenkitten.net" target="_blank">Written Kitten</a> for people who need to write their papers in LaTeX. If you have less than six hours left before you need to turn in algebra homework (and still can't manage to give a damn), you've come to the right place! Problem Set Marmoset will reward you with an exciting new image of a marmoset every time you type a certain number of characters. Our intent is to lend some positive reinforcement to the scientific sphere of academia.</p>
-      <p>If you are skeptical about the effectiveness of cute animals on deadlines, let it be known that I am forcing myself to type these very words only with the help of Written Kitten. Desperation knows no bounds. First time here? Make sure to check out the features section to know how you can fiddle with Problem Set Marmoset.</p>
-      <p><i>Alex is currently a junior at UC Berkeley, majoring in computer science and mathematics. Demie is a recent Berkeley graduate in linguistics and mathematics. Both enjoy gelato, short stories by Chekhov, and marmosets commending their incremental progress.</i></p>
-      <p>Special thanks to:</p>
-      <ul>
-	<li><a href="http://www.flickr.com" target="_blank">flickr</a></li>
-	<li><a href="http://www.holoborodko.com/pavel/" target="_blank">Pavel Holoborodko</a>, for his <a href="http://www.quicklatex.com" target="_blank">QuickLaTeX</a> renderer</li>
-	<li><a href="http://www.codemirror.net" target="_blank">CodeMirror</a></li>
-	<li><a href="http://www.mathtran.org" target="_blank">MathTran</a>'s LaTeX splitter</li>
-	<li><a href="https://plus.google.com/105002876930312591289/about" target="_blank">Santiago Orozco</a>, for the font you see on this page (Antic)</li>
-	<li><a href="http://www.writtenkitten.net" target="_blank">Written Kitten</a>, for providing the inspiration</li>
-	<li>James Silvey, for realizing that &quot;problem set&quot; rhymed with &quot;marmoset&quot;</li>
-      </ul>
-    </div>
-    <div id="featuresPage" class="page">
-      <p class="title">Features</p>
-      <ul>
-    	<li><b>Syntax:</b> Problem Set Marmoset uses the <a href="http://www.holoborodko.com/pavel/quicklatex/" target="_blank">QuickLaTeX</a> renderer by separately rendering every mathmode chunk. Typing in PSM follows basic LaTeX syntax except for some major restrictions:<br><br>
+			</div>
+			<div id="marmosetCredit"></div>
+			<button id="notAMarmoset">not a marmoset D:</button>
+		</div>
+	</div>
+	<div id="footer">
+		<a href="#about">about</a> |
+		<a href="#features">features</a> |
+		<a href="#contact">contact</a>
+	</div>
+	<div id="pages">
+		<div id="aboutPage" class="page">
+			<p class="title">About</p>
+			<p>Problem Set Marmoset (PSM) was created by professional procrastinators <a href="http://alex.nisnevich.com">Alex Nisnevich</a> and Demie Cheng as an alternative to <a href="http://www.writtenkitten.net" target="_blank">Written Kitten</a> for people who need to write their papers in LaTeX. If you have less than six hours left before you need to turn in algebra homework (and still can't manage to give a damn), you've come to the right place! Problem Set Marmoset will reward you with an exciting new image of a marmoset every time you type a certain number of characters. Our intent is to lend some positive reinforcement to the scientific sphere of academia.</p>
+			<p>If you are skeptical about the effectiveness of cute animals on deadlines, let it be known that I am forcing myself to type these very words only with the help of Written Kitten. Desperation knows no bounds. First time here? Make sure to check out the features section to know how you can fiddle with Problem Set Marmoset.</p>
+			<p><i>Alex is currently a junior at UC Berkeley, majoring in computer science and mathematics. Demie is a recent Berkeley graduate in linguistics and mathematics. Both enjoy gelato, short stories by Chekhov, and marmosets commending their incremental progress.</i></p>
+			<p>Special thanks to:</p>
+			<ul>
+				<li><a href="http://www.flickr.com" target="_blank">flickr</a></li>
+				<li><a href="http://www.holoborodko.com/pavel/" target="_blank">Pavel Holoborodko</a>, for his <a href="http://www.quicklatex.com" target="_blank">QuickLaTeX</a> renderer</li>
+				<li><a href="http://www.codemirror.net" target="_blank">CodeMirror</a></li>
+				<li><a href="http://www.mathtran.org" target="_blank">MathTran</a>'s LaTeX splitter</li>
+				<li><a href="https://plus.google.com/105002876930312591289/about" target="_blank">Santiago Orozco</a>, for the font you see on this page (Antic)</li>
+				<li><a href="http://www.writtenkitten.net" target="_blank">Written Kitten</a>, for providing the inspiration</li>
+				<li>James Silvey, for realizing that &quot;problem set&quot; rhymed with &quot;marmoset&quot;</li>
+			</ul>
+		</div>
+		<div id="featuresPage" class="page">
+			<p class="title">Features</p>
+			<ul>
+			<li><b>Syntax:</b> Problem Set Marmoset uses the <a href="http://www.holoborodko.com/pavel/quicklatex/" target="_blank">QuickLaTeX</a> renderer by separately rendering every mathmode chunk. Typing in PSM follows basic LaTeX syntax except for some major restrictions:<br><br>
 
 			The renderer is invoked for text that is within mathmode delimiters <B>$</B> ... <B>$</B>, display math delimiters <B>$$</B> ... <B>$$</B>, or environment delimiters <B>\begin{</B><I>some-environment</I><B>}</B> ... <B>\end{</B><I>some-environment</I><B>}</B>. The alternate display math delimiters <B>\[</B> . . . <B>\]</B> are not currently supported.<br><br>
 
@@ -119,17 +120,17 @@
 			We will update this section regularly as we run into any more notable points during usage.
 		</li>
 
-    	</li>
+			</li>
 
 		<li><b>Highlighting:</b> The editor features syntax highlighting to help you dot your i's and cross your t's. Here's the legend for what the colors refer to:
-		  <ul class="cm-s-default">
+			<ul class="cm-s-default">
 			<li>purple - mathmode delimiters <span class="cm-keyword">$</span> . . . <span class="cm-keyword">$</span></li>
 			<li>blue - <span class="cm-tag">\keywords</span>, such as <span class="cm-tag">\phi</span>, <span class="cm-tag">\dfrac</span>, <span class="cm-tag">\begin</span></li>
 			<li>plum - brackets: <span class="cm-bracket">{} []</span></li>
 			<li>green - <span class="cm-atom">numbers</span> and keywords, such as \begin{<span class="cm-atom">align*</span>}</li>
 			<li>brown - <span class="cm-comment">% comments</span></li>
 			<li>red - <span class="cm-error">errors</span> (For now, this just means excessive or wrongly-placed brackets.)</li>
-		  </ul>
+			</ul>
 		</li>
 
 		<li><b>Rendering:</b> The LaTeX renderer automatically refreshes every 10 seconds to reflect the current input. However, if you wish to see the results immediately because you're making some minor changes (or trying to fix syntax), you can click 'render' on the bottom-right corner of the output window. </li>
@@ -138,23 +139,23 @@
 
 		<li><b>Adjustable threshold:</b> You can adjust the threshold for how many characters need to be typed before a new marmoset is shown. 175 char is the starting baseline for what we think is reasonable (equivalent to about 5-10 minutes of work), taking into consideration the extra time needed to solve a problem. On the other hand, if you are writing an abstract, or working within the social sciences, it might be best to adjust your character level to 1000, which is around the order of 150-200 words. Here are some rough guidelines that work for us:
 
-		  <ul>
+			<ul>
 			<li>175-350 (math mode): best for problem sets with minimal background text, e.g. algebra, set theory, PDEs, EECS / mech e, charts & tables</li>
 			<li>500 (physics mode): best for problem sets which require a little more explanatory detail, e.g. chem lab reports, statistical analysis, product design proposals</li>
 			<li>750-1000 (social science mode): best for full-length academic papers & social sciences (e.g. linguistics, anthropology, psychology)</li>
-		  </ul>
+			</ul>
 
-		  Keep track of your progress with the live character count on the bottom right-hand corner of the output window.</li>
+			Keep track of your progress with the live character count on the bottom right-hand corner of the output window.</li>
 
 		<li><b>Marmosets:</b> If a particular marmoset image really strikes your fancy, you can always download / view the picture in full by clicking on the attribution link that's listed under every photo :). We hope you come across a couple of memorable ones as you work!</li>
-      </ul>
-    </div>
-    <div id="contactPage" class="page">
-      <p class="title">Contact</p>
-      <p>This project is still in its beta stages, so if you encounter any bugs (images fail to load , chunks of LaTeX don't render properly, you start hearing strange voices , etc.), or any other annoyances that we've overlooked, please don't hesitate to contact Alex.</p>
-      <p>Additionally, if you have any special requests that you'd like to see come into fruition, feel free to drop either of us a line. We'd love to hear your opinions on how PSM can be bettered! Thanks for your support :).</p>
-      <p><b>Alex Nisnevich</b>: alex [dot] nisnevich [at] gmail <br> <b>Demie Cheng</b>: saccharine [dot] luck [at] gmail</p>
-    </div>
-  </div>
+			</ul>
+		</div>
+		<div id="contactPage" class="page">
+			<p class="title">Contact</p>
+			<p>This project is still in its beta stages, so if you encounter any bugs (images fail to load , chunks of LaTeX don't render properly, you start hearing strange voices , etc.), or any other annoyances that we've overlooked, please don't hesitate to contact Alex.</p>
+			<p>Additionally, if you have any special requests that you'd like to see come into fruition, feel free to drop either of us a line. We'd love to hear your opinions on how PSM can be bettered! Thanks for your support :).</p>
+			<p><b>Alex Nisnevich</b>: alex [dot] nisnevich [at] gmail <br> <b>Demie Cheng</b>: saccharine [dot] luck [at] gmail</p>
+		</div>
+	</div>
 </body>
 </html>
