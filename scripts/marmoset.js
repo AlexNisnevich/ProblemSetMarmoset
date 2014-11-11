@@ -374,7 +374,7 @@ function localStorageWarning() {
 
 function getMarmoset() {
   var pageNum = Math.ceil(Math.random()*423/100);
-  var flickrUrl = "http://api.flickr.com/services/rest/?format=json&sort=interestingness-desc&method=flickr.photos.search&license=1,2,4,6&extras=owner_name,license&tags=marmoset&tag_mode=all&api_key=" + flickrApiKey + "&page=" + pageNum + "&jsoncallback=?";
+  var flickrUrl = "https://api.flickr.com/services/rest/?format=json&sort=interestingness-desc&method=flickr.photos.search&license=1,2,4,6&extras=owner_name,license&tags=marmoset&tag_mode=all&api_key=" + flickrApiKey + "&page=" + pageNum + "&jsoncallback=?";
 
   $.getJSON(flickrUrl, function(data) {
 	if (data.stat == "ok") {
